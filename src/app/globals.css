@@ -1,0 +1,201 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-ink: var(--ink);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/*
+ * CHRONOS — luxury boutique theme.
+ * The shop is intentionally dark-only: deep charcoal with metallic gold accents.
+ */
+:root {
+  --radius: 0.625rem;
+  --background: #0b0b0d;
+  --foreground: #ece9e2;
+  --card: #141417;
+  --card-foreground: #ece9e2;
+  --popover: #17171b;
+  --popover-foreground: #ece9e2;
+  --primary: #d4af37;
+  --primary-foreground: #0b0b0d;
+  --secondary: #1d1d22;
+  --secondary-foreground: #ece9e2;
+  --muted: #1a1a1f;
+  --muted-foreground: #a09a8d;
+  --accent: #26231a;
+  --accent-foreground: #e9cf7a;
+  --destructive: #e5484d;
+  --border: rgba(236, 233, 226, 0.09);
+  --input: rgba(236, 233, 226, 0.13);
+  --ring: #d4af37;
+  --chart-1: #d4af37;
+  --chart-2: #e9cf7a;
+  --chart-3: #9c7c22;
+  --chart-4: #6e5c2e;
+  --chart-5: #4a3f24;
+  --sidebar: #141417;
+  --sidebar-foreground: #ece9e2;
+  --sidebar-primary: #d4af37;
+  --sidebar-primary-foreground: #0b0b0d;
+  --sidebar-accent: #1d1d22;
+  --sidebar-accent-foreground: #ece9e2;
+  --sidebar-border: rgba(236, 233, 226, 0.09);
+  --sidebar-ring: #d4af37;
+  --gold: #d4af37;
+  --gold-light: #e9cf7a;
+  --gold-dark: #9c7c22;
+  --ink: #0b0b0d;
+}
+
+.dark {
+  --background: #0b0b0d;
+  --foreground: #ece9e2;
+  --card: #141417;
+  --card-foreground: #ece9e2;
+  --popover: #17171b;
+  --popover-foreground: #ece9e2;
+  --primary: #d4af37;
+  --primary-foreground: #0b0b0d;
+  --secondary: #1d1d22;
+  --secondary-foreground: #ece9e2;
+  --muted: #1a1a1f;
+  --muted-foreground: #a09a8d;
+  --accent: #26231a;
+  --accent-foreground: #e9cf7a;
+  --destructive: #e5484d;
+  --border: rgba(236, 233, 226, 0.09);
+  --input: rgba(236, 233, 226, 0.13);
+  --ring: #d4af37;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  ::selection {
+    background: rgba(212, 175, 55, 0.28);
+    color: #fff;
+  }
+}
+
+/* ————— Custom scrollbar ————— */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0b0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a30;
+  border-radius: 8px;
+  border: 2px solid #0b0b0d;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}
+
+/* ————— Marquee ————— */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 36s linear infinite;
+}
+.marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+/* ————— Fine gold hairline ————— */
+.gold-hairline {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.55),
+    transparent
+  );
+  height: 1px;
+}
+
+/* ————— Star rating ————— */
+.star-filled {
+  color: var(--gold);
+}
+
+/* ————— Subtle glow pulse for primary CTA ————— */
+@keyframes cta-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 35px -8px rgba(212, 175, 55, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 42px -6px rgba(212, 175, 55, 0.7);
+  }
+}
+.animate-cta-glow {
+  animation: cta-glow 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-cta-glow {
+    animation: none;
+  }
+}
