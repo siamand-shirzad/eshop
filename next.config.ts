@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // this folder is the project root even if a lockfile exists higher up
+  turbopack: { root: process.cwd() },
   typescript: {
     ignoreBuildErrors: true,
   },
